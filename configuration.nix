@@ -149,6 +149,7 @@
    #other apps
     kdePackages.neochat
     brave
+    kitty
    # Docker / containers
     docker-compose
 
