@@ -103,6 +103,9 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   virtualisation.docker.enable = true;
+  virtualisation.podman.enable = true;
+  services.prometheus.enable = true;
+  
   environment.systemPackages = with pkgs; [
    # vim # Do not forget to add an editor to edit configuration.nix! The Nano editor is also installed by default.
    # Editors / basics
@@ -126,6 +129,10 @@
     # C / C++ libs
     glibc
     glibc.dev
+    gcc
+    libgcc
+    gnumake
+    extra-cmake-modules
     #libstdcxx5
 
    # Python
@@ -145,18 +152,22 @@
 
    # IDE
     vscode
-
+    code-cursor
    #other apps
     kdePackages.neochat
     brave
     kitty
+    jq
+    uv
+    kubectl
    # Docker / containers
     docker-compose
-
+   
     # Kubernetes
     kubectl
     kind
     minikube
+    podman
     helm
   ];
   # Allow Matrix E2EE dependency (required for NeoChat)
